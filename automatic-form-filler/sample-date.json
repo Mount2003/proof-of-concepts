@@ -1,0 +1,1098 @@
+{
+  "data": {
+    "id": "54009072cb1f2daea43f6b51aef18544eaa52ccfcfdd77854196464ecb979cc5",
+    "type": "file",
+    "links": {
+      "self": "https://www.virustotal.com/api/v3/files/54009072cb1f2daea43f6b51aef18544eaa52ccfcfdd77854196464ecb979cc5"
+    },
+    "attributes": {
+      "times_submitted": 1,
+      "filecondis": {
+        "raw_md5": "63cf877a482da0fe19ad540cf71b1c33",
+        "dhash": "fc7c7e9c4c1d5008"
+      },
+      "crowdsourced_yara_results": [
+        {
+          "ruleset_id": "008d4d1b1f",
+          "ruleset_version": "008d4d1b1f|6558c417dcf07146b1309b6acde6be0aa96dea10",
+          "ruleset_name": "win.pony_auto",
+          "rule_name": "win_pony_auto",
+          "match_date": 1754810793,
+          "description": "Detects win.pony.",
+          "author": "Felix Bilstein - yara-signator at cocacoding dot com",
+          "source": "https://malpedia.caad.fkie.fraunhofer.de/"
+        },
+        {
+          "ruleset_id": "00be8a8e3b",
+          "ruleset_version": "00be8a8e3b|b488c511a7c48ed6c425bf38811bf08e87b0ddbf",
+          "ruleset_name": "Fareit",
+          "rule_name": "Fareit",
+          "match_date": 1754810793,
+          "description": "Fareit Payload",
+          "author": "kevoreilly",
+          "source": "https://github.com/kevoreilly/CAPEv2"
+        },
+        {
+          "ruleset_id": "00c3b8eb5d",
+          "ruleset_version": "00c3b8eb5d|e76c93dcdedff04076380ffc60ea54e45b313635",
+          "ruleset_name": "indicator_suspicious",
+          "rule_name": "INDICATOR_SUSPICIOUS_EXE_Referenfces_File_Transfer_Clients",
+          "match_date": 1754810793,
+          "description": "Detects executables referencing many file transfer clients. Observed in information stealers",
+          "author": "ditekSHen",
+          "source": "https://github.com/ditekshen/detection"
+        },
+        {
+          "ruleset_id": "015240cbc0",
+          "ruleset_version": "015240cbc0|195c9611ddb90db599d7ffc1a9b0e8c45688007d",
+          "ruleset_name": "Windows_Trojan_Pony",
+          "rule_name": "Windows_Trojan_Pony_d5516fe8",
+          "match_date": 1754810793,
+          "author": "Elastic Security",
+          "source": "https://github.com/elastic/protections-artifacts"
+        }
+      ],
+      "md5": "097e65a684976be21739d80681ca9ea3",
+      "sha1": "6bc8be926053efe7a06ff968329333f231ed38f5",
+      "type_tags": [
+        "executable",
+        "windows",
+        "win32",
+        "pe",
+        "peexe"
+      ],
+      "type_extension": "exe",
+      "crowdsourced_ids_results": [
+        {
+          "rule_category": "A Network Trojan was detected",
+          "alert_severity": "high",
+          "rule_msg": "ET MALWARE Pony Downloader HTTP Library MSIE 5 Win98",
+          "rule_id": "1:2014562",
+          "rule_source": "Proofpoint Emerging Threats Open",
+          "rule_url": "https://rules.emergingthreats.net/",
+          "rule_raw": "alert http $HOME_NET any -> $EXTERNAL_NET any (msg:\"ET MALWARE Pony Downloader HTTP Library MSIE 5 Win98\"; flow:established,to_server; http.user_agent; content:\"Mozilla/4.0|20|(compatible|3b 20|MSIE 5.0|3b 20|Windows 98)\"; fast_pattern; http.accept_enc; content:\"*|3b|q=0\"; http.protocol; content:\"HTTP/1.0\"; http.header_names; content:\"|0d 0a|Host|0d 0a|\"; depth:8; classtype:trojan-activity; sid:2014562; rev:5; metadata:created_at 2012_04_13, signature_severity Major, updated_at 2020_11_05;)",
+          "alert_context": [
+            {
+              "dest_ip": "178.238.222.56",
+              "dest_port": 80,
+              "hostname": "kjt.hu",
+              "url": "http://kjt.hu/wp-admin/images/Panel/next.exe"
+            }
+          ]
+        },
+        {
+          "rule_category": "A Network Trojan was detected",
+          "alert_severity": "high",
+          "rule_msg": "ET MALWARE EXE Download Request To Wordpress Folder Likely Malicious",
+          "rule_id": "1:2021697",
+          "rule_source": "Proofpoint Emerging Threats Open",
+          "rule_url": "https://rules.emergingthreats.net/",
+          "rule_raw": "alert http $HOME_NET any -> $EXTERNAL_NET any (msg:\"ET MALWARE EXE Download Request To Wordpress Folder Likely Malicious\"; flow:established,to_server; http.method; content:\"GET\"; http.uri; content:\"/wp-\"; content:\".exe\"; fast_pattern; pcre:\"/^(?:\\?[0-9])?/R\"; pcre:\"/\\/wp-(?:content|admin|includes)\\//\"; http.header_names; content:!\"Referer\"; reference:md5,adabe1b995e6633dee19fdd2fdc4957a; classtype:trojan-activity; sid:2021697; rev:5; metadata:affected_product Wordpress, affected_product Wordpress_Plugins, attack_target Client_Endpoint, created_at 2015_08_20, deployment Perimeter, performance_impact Low, confidence Medium, signature_severity Major, tag Wordpress, updated_at 2020_08_25;)",
+          "rule_references": [
+            "https://www.virustotal.com/gui/search/adabe1b995e6633dee19fdd2fdc4957a"
+          ],
+          "alert_context": [
+            {
+              "dest_ip": "178.238.222.56",
+              "dest_port": 80,
+              "hostname": "kjt.hu",
+              "url": "http://kjt.hu/wp-admin/images/Panel/next.exe"
+            }
+          ]
+        },
+        {
+          "rule_category": "Potentially Bad Traffic",
+          "alert_severity": "low",
+          "rule_msg": "TGI HUNT Suspicious HTTP Path",
+          "rule_id": "1:2610396",
+          "rule_source": "Travis Green: Threat hunting rules",
+          "rule_url": "https://raw.githubusercontent.com/travisbgreen/hunting-rules/master/hunting.rules",
+          "rule_raw": "alert http any any -> any any (msg:\"TGI HUNT Suspicious HTTP Path\"; flow:to_server,established; content:\"/Panel/\"; http_uri; threshold:type limit, track by_src, seconds 60, count 1; classtype:bad-unknown; sid:2610396; rev:1;)",
+          "alert_context": [
+            {
+              "dest_ip": "178.238.222.56",
+              "dest_port": 80,
+              "hostname": "kjt.hu",
+              "url": "http://kjt.hu/wp-admin/images/Panel/next.exe"
+            }
+          ]
+        },
+        {
+          "rule_category": "Potential Corporate Privacy Violation",
+          "alert_severity": "info",
+          "rule_msg": "ET POLICY Windows 98 User-Agent Detected - Possible Malware or Non-Updated System",
+          "rule_id": "1:2007695",
+          "rule_source": "Proofpoint Emerging Threats Open",
+          "rule_url": "https://rules.emergingthreats.net/",
+          "rule_raw": "alert http $HOME_NET any -> $EXTERNAL_NET any (msg:\"ET POLICY Windows 98 User-Agent Detected - Possible Malware or Non-Updated System\"; flow:established,to_server; http.header; content:!\"X-Trend-ActiveUpdate\"; content:!\"HTTrack\"; http.user_agent; content:\"Windows 98\"; classtype:policy-violation; sid:2007695; rev:22; metadata:created_at 2010_07_30, confidence Medium, signature_severity Informational, updated_at 2020_07_29;)",
+          "alert_context": [
+            {
+              "dest_ip": "178.238.222.56",
+              "dest_port": 80,
+              "hostname": "kjt.hu",
+              "url": "http://kjt.hu/wp-admin/images/Panel/next.exe"
+            }
+          ]
+        },
+        {
+          "rule_category": "Potential Corporate Privacy Violation",
+          "alert_severity": "info",
+          "rule_msg": "ET POLICY Unsupported/Fake Internet Explorer Version MSIE 5.",
+          "rule_id": "1:2016870",
+          "rule_source": "Proofpoint Emerging Threats Open",
+          "rule_url": "https://rules.emergingthreats.net/",
+          "rule_raw": "alert http $HOME_NET any -> [!134.170.0.0/16,$EXTERNAL_NET] any (msg:\"ET POLICY Unsupported/Fake Internet Explorer Version MSIE 5.\"; flow:established,to_server; threshold: type limit,track by_src,count 2,seconds 60; http.header; content:!\"GeoVision\"; http.user_agent; content:\"|20|MSIE 5.\"; fast_pattern; nocase; http.host; content:!\".microsoft.com\"; endswith; content:!\".trendmicro.com\"; endswith; content:!\".sony.net\"; endswith; content:!\".weather.com\"; endswith; content:!\".yahoo.com\"; endswith; content:!\".dellfix.com\"; endswith; content:!\".oncenter.com\"; endswith; classtype:policy-violation; sid:2016870; rev:15; metadata:created_at 2013_05_21, confidence High, signature_severity Informational, updated_at 2020_09_17;)",
+          "alert_context": [
+            {
+              "dest_ip": "178.238.222.56",
+              "dest_port": 80,
+              "hostname": "kjt.hu",
+              "url": "http://kjt.hu/wp-admin/images/Panel/next.exe"
+            }
+          ]
+        }
+      ],
+      "reputation": -13,
+      "tags": [
+        "peexe",
+        "malware"
+      ],
+      "pe_info": {
+        "timestamp": 1411060511,
+        "imphash": "8ccde584db2b33df6901142bba965604",
+        "machine_type": 332,
+        "entry_point": 67156,
+        "sections": [
+          {
+            "name": "UPX0",
+            "chi2": 788321.75,
+            "virtual_address": 4096,
+            "entropy": 6.05,
+            "raw_size": 69632,
+            "flags": "rwx",
+            "virtual_size": 69632,
+            "md5": "ab62d769704ac4a75aee6d4354937725"
+          },
+          {
+            "name": "UPX1",
+            "chi2": 1342079.12,
+            "virtual_address": 73728,
+            "entropy": 5.01,
+            "raw_size": 33792,
+            "flags": "rwx",
+            "virtual_size": 36864,
+            "md5": "f6a3fcfe5baa842970ce652d8ef71ea6"
+          },
+          {
+            "name": "UPX2",
+            "chi2": 111470.5,
+            "virtual_address": 110592,
+            "entropy": 2.76,
+            "raw_size": 1024,
+            "flags": "rw",
+            "virtual_size": 4096,
+            "md5": "ccfe5e5f03d7bbd7e87058fe9485ef99"
+          },
+          {
+            "name": ".imports",
+            "chi2": 70015.25,
+            "virtual_address": 114688,
+            "entropy": 4.23,
+            "raw_size": 2048,
+            "flags": "rw",
+            "virtual_size": 4096,
+            "md5": "5a5308bf0a41df58bf3600de7b3b6b45"
+          }
+        ],
+        "import_list": [
+          {
+            "library_name": "KERNEL32.DLL",
+            "imported_functions": [
+              "CloseHandle",
+              "CreateDirectoryA",
+              "CreateFileA",
+              "CreateFileMappingA",
+              "CreateToolhelp32Snapshot",
+              "DeleteFileA",
+              "ExitProcess",
+              "ExpandEnvironmentStringsA",
+              "FindClose",
+              "FindFirstFileA",
+              "FindNextFileA",
+              "GetCurrentDirectoryA",
+              "GetCurrentProcess",
+              "GetFileAttributesA",
+              "GetFileSize",
+              "GetLastError",
+              "GetLocaleInfoA",
+              "GetModuleFileNameA",
+              "GetModuleHandleA",
+              "GetPrivateProfileIntA",
+              "GetPrivateProfileSectionNamesA",
+              "GetPrivateProfileStringA",
+              "GetProcAddress",
+              "GetSystemInfo",
+              "GetTempPathA",
+              "GetTickCount",
+              "GetVersionExA",
+              "GetWindowsDirectoryA",
+              "GlobalLock",
+              "GlobalUnlock",
+              "LCMapStringA",
+              "LoadLibraryA",
+              "LocalAlloc",
+              "LocalFree",
+              "lstrcatA",
+              "lstrcmpA",
+              "lstrcmpiA",
+              "lstrcpyA",
+              "lstrlenA",
+              "lstrlenW",
+              "MapViewOfFile",
+              "MultiByteToWideChar",
+              "OpenProcess",
+              "Process32First",
+              "Process32Next",
+              "ReadFile",
+              "SetCurrentDirectoryA",
+              "SetUnhandledExceptionFilter",
+              "Sleep",
+              "UnmapViewOfFile",
+              "WideCharToMultiByte",
+              "WriteFile"
+            ]
+          },
+          {
+            "library_name": "ole32.dll",
+            "imported_functions": [
+              "CoCreateGuid",
+              "CoCreateInstance",
+              "CoTaskMemFree",
+              "CreateStreamOnHGlobal",
+              "GetHGlobalFromStream",
+              "OleInitialize"
+            ]
+          },
+          {
+            "library_name": "user32.dll",
+            "imported_functions": [
+              "wsprintfA"
+            ]
+          },
+          {
+            "library_name": "advapi32.dll",
+            "imported_functions": [
+              "GetUserNameA",
+              "IsTextUnicode",
+              "RegCloseKey",
+              "RegCreateKeyA",
+              "RegEnumKeyExA",
+              "RegEnumValueA",
+              "RegOpenCurrentUser",
+              "RegOpenKeyA",
+              "RegOpenKeyExA",
+              "RegQueryValueExA",
+              "RegSetValueExA"
+            ]
+          },
+          {
+            "library_name": "shell32.dll",
+            "imported_functions": [
+              "ShellExecuteA"
+            ]
+          },
+          {
+            "library_name": "wininet.dll",
+            "imported_functions": [
+              "InternetCrackUrlA",
+              "InternetCreateUrlA"
+            ]
+          },
+          {
+            "library_name": "shlwapi.dll",
+            "imported_functions": [
+              "StrCmpNIA",
+              "StrRChrIA",
+              "StrStrA",
+              "StrStrIA",
+              "StrStrIW",
+              "StrToIntA"
+            ]
+          },
+          {
+            "library_name": "wsock32.dll",
+            "imported_functions": [
+              "closesocket",
+              "connect",
+              "gethostbyname",
+              "inet_addr",
+              "recv",
+              "select",
+              "send",
+              "setsockopt",
+              "socket",
+              "WSAStartup"
+            ]
+          },
+          {
+            "library_name": "userenv.dll",
+            "imported_functions": [
+              "LoadUserProfileA",
+              "UnloadUserProfile"
+            ]
+          }
+        ]
+      },
+      "tlsh": "T1AEB31A03F5C0A0F1C1A22B7137C15761EBF99E787C3A8D5AEF9C49856DF26876B12442",
+      "vhash": "01504e6f5d1d10b8z347z67z1061z11z2bz",
+      "crowdsourced_ids_stats": {
+        "high": 2,
+        "medium": 0,
+        "low": 1,
+        "info": 2
+      },
+      "type_tag": "peexe",
+      "size": 107520,
+      "sha256": "54009072cb1f2daea43f6b51aef18544eaa52ccfcfdd77854196464ecb979cc5",
+      "unique_sources": 1,
+      "last_analysis_date": 1754810675,
+      "detectiteasy": {
+        "filetype": "PE32",
+        "values": [
+          {
+            "info": "GUI32",
+            "version": "2.50*",
+            "type": "Linker",
+            "name": "Polink"
+          }
+        ]
+      },
+      "authentihash": "a20c1fbd53c70528927d5610897eb95a6c7e1cbf392be1afe770c62dfd47d98d",
+      "magika": "PEBIN",
+      "type_description": "Win32 EXE",
+      "last_analysis_stats": {
+        "malicious": 58,
+        "suspicious": 0,
+        "undetected": 14,
+        "harmless": 0,
+        "timeout": 0,
+        "confirmed-timeout": 0,
+        "failure": 0,
+        "type-unsupported": 4
+      },
+      "ssdeep": "1536:g1CNBBcbswqTDbZ5f1K5cYC/fQwRxs/YnhCCWO946pTvMEIPkzmLsV7HF:4CN0bwf0YfQw8AiO0EIvLsV7HF",
+      "meaningful_name": "cs99rlm.exe",
+      "names": [
+        "cs99rlm.exe",
+        "54009072cb1f2daea43f6b51aef18544eaa52ccfcfdd77854196464ecb979cc5.exe",
+        "0_54009072cb1f2daea43f6b51aef18544eaa52ccfcfdd77854196464ecb979cc5.exe",
+        "sq2h94.exe"
+      ],
+      "first_submission_date": 1754810675,
+      "trid": [
+        {
+          "file_type": "Win32 Executable MS Visual C++ (generic)",
+          "probability": 28
+        },
+        {
+          "file_type": "UPX compressed Win32 Executable",
+          "probability": 24.3
+        },
+        {
+          "file_type": "Win32 EXE Yoda's Crypter",
+          "probability": 23.9
+        },
+        {
+          "file_type": "Win32 Dynamic Link Library (generic)",
+          "probability": 5.9
+        },
+        {
+          "file_type": "Win16 NE executable (generic)",
+          "probability": 4.5
+        }
+      ],
+      "total_votes": {
+        "harmless": 0,
+        "malicious": 3
+      },
+      "first_seen_itw_date": 1754817177,
+      "last_submission_date": 1754810675,
+      "magic": "PE32 executable (GUI) Intel 80386 (stripped to external PDB), for MS Windows, UPX compressed",
+      "last_modification_date": 1754832993,
+      "sandbox_verdicts": {
+        "CAPE Sandbox": {
+          "category": "malicious",
+          "malware_classification": [
+            "MALWARE"
+          ],
+          "sandbox_name": "CAPE Sandbox",
+          "malware_names": [
+            "Fareit"
+          ]
+        },
+        "Zenbox": {
+          "category": "malicious",
+          "malware_classification": [
+            "MALWARE",
+            "STEALER",
+            "TROJAN",
+            "EVADER"
+          ],
+          "sandbox_name": "Zenbox",
+          "malware_names": [
+            "Pony"
+          ],
+          "confidence": 92
+        },
+        "VMRay": {
+          "category": "malicious",
+          "malware_classification": [
+            "MALWARE"
+          ],
+          "sandbox_name": "VMRay",
+          "malware_names": [
+            "Pony"
+          ]
+        }
+      },
+      "popular_threat_classification": {
+        "popular_threat_name": [
+          {
+            "count": 10,
+            "value": "fareit"
+          },
+          {
+            "count": 8,
+            "value": "genericfca"
+          },
+          {
+            "count": 6,
+            "value": "tepfer"
+          }
+        ],
+        "popular_threat_category": [
+          {
+            "count": 16,
+            "value": "trojan"
+          },
+          {
+            "count": 8,
+            "value": "adware"
+          }
+        ],
+        "suggested_threat_label": "trojan.fareit/genericfca"
+      },
+      "creation_date": 1411060511,
+      "last_analysis_results": {
+        "Bkav": {
+          "method": "blacklist",
+          "engine_name": "Bkav",
+          "engine_version": "2.0.0.1",
+          "engine_update": "20250809",
+          "category": "malicious",
+          "result": "W32.AIDetectMalware"
+        },
+        "Lionic": {
+          "method": "blacklist",
+          "engine_name": "Lionic",
+          "engine_version": "8.16",
+          "engine_update": "20250810",
+          "category": "undetected",
+          "result": null
+        },
+        "AVG": {
+          "method": "blacklist",
+          "engine_name": "AVG",
+          "engine_version": "23.9.8494.0",
+          "engine_update": "20250810",
+          "category": "malicious",
+          "result": "Sf:Crypt-AS [Trj]"
+        },
+        "Elastic": {
+          "method": "blacklist",
+          "engine_name": "Elastic",
+          "engine_version": "4.0.219",
+          "engine_update": "20250729",
+          "category": "malicious",
+          "result": "Windows.Trojan.Pony"
+        },
+        "MicroWorld-eScan": {
+          "method": "blacklist",
+          "engine_name": "MicroWorld-eScan",
+          "engine_version": "14.0.409.0",
+          "engine_update": "20250810",
+          "category": "malicious",
+          "result": "Gen:Variant.Adware.GenericFCA.754"
+        },
+        "CTX": {
+          "method": "blacklist",
+          "engine_name": "CTX",
+          "engine_version": "2024.8.29.1",
+          "engine_update": "20250810",
+          "category": "malicious",
+          "result": "exe.adware.genericfca"
+        },
+        "CAT-QuickHeal": {
+          "method": "blacklist",
+          "engine_name": "CAT-QuickHeal",
+          "engine_version": "22.00",
+          "engine_update": "20250809",
+          "category": "malicious",
+          "result": "Trojanpws.Tepfer.20303"
+        },
+        "Skyhigh": {
+          "method": "blacklist",
+          "engine_name": "Skyhigh",
+          "engine_version": "v2021.2.0+4045",
+          "engine_update": "20250809",
+          "category": "malicious",
+          "result": "BehavesLike.Win32.Generic.cm"
+        },
+        "ALYac": {
+          "method": "blacklist",
+          "engine_name": "ALYac",
+          "engine_version": "2.0.0.10",
+          "engine_update": "20250809",
+          "category": "malicious",
+          "result": "Gen:Variant.Adware.GenericFCA.754"
+        },
+        "Malwarebytes": {
+          "method": "blacklist",
+          "engine_name": "Malwarebytes",
+          "engine_version": "3.1.0.150",
+          "engine_update": "20250810",
+          "category": "malicious",
+          "result": "Generic.Malware.AI.DDS"
+        },
+        "VIPRE": {
+          "method": "blacklist",
+          "engine_name": "VIPRE",
+          "engine_version": "6.0.0.35",
+          "engine_update": "20250809",
+          "category": "malicious",
+          "result": "Gen:Variant.Adware.GenericFCA.754"
+        },
+        "Sangfor": {
+          "method": "blacklist",
+          "engine_name": "Sangfor",
+          "engine_version": "2.22.3.0",
+          "engine_update": "20250808",
+          "category": "malicious",
+          "result": "Trojan.Win32.Save.a"
+        },
+        "K7AntiVirus": {
+          "method": "blacklist",
+          "engine_name": "K7AntiVirus",
+          "engine_version": "12.253.56649",
+          "engine_update": "20250810",
+          "category": "malicious",
+          "result": "Password-Stealer ( 0040f4f51 )"
+        },
+        "Alibaba": {
+          "method": "blacklist",
+          "engine_name": "Alibaba",
+          "engine_version": "0.3.0.5",
+          "engine_update": "20190527",
+          "category": "undetected",
+          "result": null
+        },
+        "K7GW": {
+          "method": "blacklist",
+          "engine_name": "K7GW",
+          "engine_version": "12.253.56648",
+          "engine_update": "20250810",
+          "category": "malicious",
+          "result": "Password-Stealer ( 0040f4f51 )"
+        },
+        "CrowdStrike": {
+          "method": "blacklist",
+          "engine_name": "CrowdStrike",
+          "engine_version": "1.0",
+          "engine_update": "20231026",
+          "category": "malicious",
+          "result": "win/malicious_confidence_100% (D)"
+        },
+        "Baidu": {
+          "method": "blacklist",
+          "engine_name": "Baidu",
+          "engine_version": "1.0.0.2",
+          "engine_update": "20190318",
+          "category": "malicious",
+          "result": "Win32.Trojan-PSW.Fareit.a"
+        },
+        "VirIT": {
+          "method": "blacklist",
+          "engine_name": "VirIT",
+          "engine_version": "9.5.1015",
+          "engine_update": "20250808",
+          "category": "undetected",
+          "result": null
+        },
+        "Symantec": {
+          "method": "blacklist",
+          "engine_name": "Symantec",
+          "engine_version": "1.22.0.0",
+          "engine_update": "20250809",
+          "category": "malicious",
+          "result": "Infostealer!im"
+        },
+        "tehtris": {
+          "method": "blacklist",
+          "engine_name": "tehtris",
+          "engine_version": "v0.1.4",
+          "engine_update": "20250810",
+          "category": "undetected",
+          "result": null
+        },
+        "ESET-NOD32": {
+          "method": "blacklist",
+          "engine_name": "ESET-NOD32",
+          "engine_version": "31668",
+          "engine_update": "20250809",
+          "category": "malicious",
+          "result": "a variant of Win32/PSW.Fareit.D"
+        },
+        "Cynet": {
+          "method": "blacklist",
+          "engine_name": "Cynet",
+          "engine_version": "4.0.3.4",
+          "engine_update": "20250810",
+          "category": "malicious",
+          "result": "Malicious (score: 100)"
+        },
+        "APEX": {
+          "method": "blacklist",
+          "engine_name": "APEX",
+          "engine_version": "6.684",
+          "engine_update": "20250807",
+          "category": "malicious",
+          "result": "Malicious"
+        },
+        "Paloalto": {
+          "method": "blacklist",
+          "engine_name": "Paloalto",
+          "engine_version": "0.9.0.1003",
+          "engine_update": "20250810",
+          "category": "undetected",
+          "result": null
+        },
+        "ClamAV": {
+          "method": "blacklist",
+          "engine_name": "ClamAV",
+          "engine_version": "1.4.3.0",
+          "engine_update": "20250809",
+          "category": "malicious",
+          "result": "Win.Trojan.PonyStealer-9831667-0"
+        },
+        "Kaspersky": {
+          "method": "blacklist",
+          "engine_name": "Kaspersky",
+          "engine_version": "22.0.1.28",
+          "engine_update": "20250810",
+          "category": "malicious",
+          "result": "Trojan-PSW.Win32.Tepfer.gen"
+        },
+        "BitDefender": {
+          "method": "blacklist",
+          "engine_name": "BitDefender",
+          "engine_version": "7.2",
+          "engine_update": "20250810",
+          "category": "malicious",
+          "result": "Gen:Variant.Adware.GenericFCA.754"
+        },
+        "NANO-Antivirus": {
+          "method": "blacklist",
+          "engine_name": "NANO-Antivirus",
+          "engine_version": "1.0.170.26895",
+          "engine_update": "20250810",
+          "category": "malicious",
+          "result": "Trojan.Win32.Siggen.evgeyh"
+        },
+        "SUPERAntiSpyware": {
+          "method": "blacklist",
+          "engine_name": "SUPERAntiSpyware",
+          "engine_version": "5.6.0.1032",
+          "engine_update": "20250809",
+          "category": "undetected",
+          "result": null
+        },
+        "Avast": {
+          "method": "blacklist",
+          "engine_name": "Avast",
+          "engine_version": "23.9.8494.0",
+          "engine_update": "20250810",
+          "category": "malicious",
+          "result": "Sf:Crypt-AS [Trj]"
+        },
+        "Rising": {
+          "method": "blacklist",
+          "engine_name": "Rising",
+          "engine_version": "25.0.0.28",
+          "engine_update": "20250810",
+          "category": "malicious",
+          "result": "Stealer.Fareit!1.B777 (CLASSIC)"
+        },
+        "Emsisoft": {
+          "method": "blacklist",
+          "engine_name": "Emsisoft",
+          "engine_version": "2024.8.0.61147",
+          "engine_update": "20250810",
+          "category": "malicious",
+          "result": "Gen:Variant.Adware.GenericFCA.754 (B)"
+        },
+        "F-Secure": {
+          "method": "blacklist",
+          "engine_name": "F-Secure",
+          "engine_version": "18.10.1547.307",
+          "engine_update": "20250810",
+          "category": "malicious",
+          "result": "Trojan.TR/PSW.Fareit.iloen"
+        },
+        "DrWeb": {
+          "method": "blacklist",
+          "engine_name": "DrWeb",
+          "engine_version": "7.0.69.6040",
+          "engine_update": "20250810",
+          "category": "malicious",
+          "result": "Trojan.PWS.Stealer.1932"
+        },
+        "Zillya": {
+          "method": "blacklist",
+          "engine_name": "Zillya",
+          "engine_version": "2.0.0.5421",
+          "engine_update": "20250808",
+          "category": "malicious",
+          "result": "Trojan.Fareit.Win32.41421"
+        },
+        "TrendMicro": {
+          "method": "blacklist",
+          "engine_name": "TrendMicro",
+          "engine_version": "24.550.0.1002",
+          "engine_update": "20250810",
+          "category": "malicious",
+          "result": "BKDR_PONY.SM"
+        },
+        "McAfeeD": {
+          "method": "blacklist",
+          "engine_name": "McAfeeD",
+          "engine_version": "1.2.0.10275",
+          "engine_update": "20250810",
+          "category": "malicious",
+          "result": "Real Protect-LS!097E65A68497"
+        },
+        "SentinelOne": {
+          "method": "blacklist",
+          "engine_name": "SentinelOne",
+          "engine_version": "25.1.1.1",
+          "engine_update": "20250114",
+          "category": "malicious",
+          "result": "Static AI - Malicious PE"
+        },
+        "Trapmine": {
+          "method": "blacklist",
+          "engine_name": "Trapmine",
+          "engine_version": "4.0.4.0",
+          "engine_update": "20250721",
+          "category": "malicious",
+          "result": "malicious.high.ml.score"
+        },
+        "CMC": {
+          "method": "blacklist",
+          "engine_name": "CMC",
+          "engine_version": "2.4.2022.1",
+          "engine_update": "20250810",
+          "category": "undetected",
+          "result": null
+        },
+        "Sophos": {
+          "method": "blacklist",
+          "engine_name": "Sophos",
+          "engine_version": "3.0.3.0",
+          "engine_update": "20250809",
+          "category": "malicious",
+          "result": "Mal/Pony-A"
+        },
+        "Ikarus": {
+          "method": "blacklist",
+          "engine_name": "Ikarus",
+          "engine_version": "6.4.16.0",
+          "engine_update": "20250809",
+          "category": "malicious",
+          "result": "Trojan-Spy.Fareit"
+        },
+        "Jiangmin": {
+          "method": "blacklist",
+          "engine_name": "Jiangmin",
+          "engine_version": "16.0.100",
+          "engine_update": "20250809",
+          "category": "malicious",
+          "result": "Trojan/PSW.Tepfer.btny"
+        },
+        "Webroot": {
+          "method": "blacklist",
+          "engine_name": "Webroot",
+          "engine_version": "1.10.0.2",
+          "engine_update": "20250227",
+          "category": "undetected",
+          "result": null
+        },
+        "Varist": {
+          "method": "blacklist",
+          "engine_name": "Varist",
+          "engine_version": "6.6.1.3",
+          "engine_update": "20250810",
+          "category": "malicious",
+          "result": "W32/Tepfer.R.gen!Eldorado"
+        },
+        "Avira": {
+          "method": "blacklist",
+          "engine_name": "Avira",
+          "engine_version": "8.3.3.22",
+          "engine_update": "20250810",
+          "category": "malicious",
+          "result": "TR/PSW.Fareit.iloen"
+        },
+        "Antiy-AVL": {
+          "method": "blacklist",
+          "engine_name": "Antiy-AVL",
+          "engine_version": "3.0",
+          "engine_update": "20250810",
+          "category": "malicious",
+          "result": "Virus/Win32.Expiro.imp"
+        },
+        "Kingsoft": {
+          "method": "blacklist",
+          "engine_name": "Kingsoft",
+          "engine_version": "None",
+          "engine_update": "20250809",
+          "category": "malicious",
+          "result": "malware.kb.a.1000"
+        },
+        "Microsoft": {
+          "method": "blacklist",
+          "engine_name": "Microsoft",
+          "engine_version": "1.1.25070.4",
+          "engine_update": "20250810",
+          "category": "malicious",
+          "result": "PWS:Win32/Fareit!pz"
+        },
+        "Gridinsoft": {
+          "method": "blacklist",
+          "engine_name": "Gridinsoft",
+          "engine_version": "1.0.222.174",
+          "engine_update": "20250810",
+          "category": "undetected",
+          "result": null
+        },
+        "Xcitium": {
+          "method": "blacklist",
+          "engine_name": "Xcitium",
+          "engine_version": "37943",
+          "engine_update": "20250809",
+          "category": "malicious",
+          "result": "Packed.Win32.MUPX.Gen@24tbus"
+        },
+        "Arcabit": {
+          "method": "blacklist",
+          "engine_name": "Arcabit",
+          "engine_version": "2025.0.0.23",
+          "engine_update": "20250810",
+          "category": "malicious",
+          "result": "Trojan.Adware.GenericFCA.754"
+        },
+        "ViRobot": {
+          "method": "blacklist",
+          "engine_name": "ViRobot",
+          "engine_version": "2014.3.20.0",
+          "engine_update": "20250809",
+          "category": "undetected",
+          "result": null
+        },
+        "ZoneAlarm": {
+          "method": "blacklist",
+          "engine_name": "ZoneAlarm",
+          "engine_version": "6.18-106783295",
+          "engine_update": "20250809",
+          "category": "malicious",
+          "result": "Mal/Pony-A"
+        },
+        "GData": {
+          "method": "blacklist",
+          "engine_name": "GData",
+          "engine_version": "GD:27.41371AVA:64.29628",
+          "engine_update": "20250810",
+          "category": "malicious",
+          "result": "Gen:Variant.Adware.GenericFCA.754"
+        },
+        "Google": {
+          "method": "blacklist",
+          "engine_name": "Google",
+          "engine_version": "1754803841",
+          "engine_update": "20250810",
+          "category": "malicious",
+          "result": "Detected"
+        },
+        "AhnLab-V3": {
+          "method": "blacklist",
+          "engine_name": "AhnLab-V3",
+          "engine_version": "3.28.0.10568",
+          "engine_update": "20250810",
+          "category": "malicious",
+          "result": "Trojan/Win.Tepfer.R438067"
+        },
+        "Acronis": {
+          "method": "blacklist",
+          "engine_name": "Acronis",
+          "engine_version": "1.2.0.121",
+          "engine_update": "20240328",
+          "category": "undetected",
+          "result": null
+        },
+        "VBA32": {
+          "method": "blacklist",
+          "engine_name": "VBA32",
+          "engine_version": "5.3.2",
+          "engine_update": "20250808",
+          "category": "malicious",
+          "result": "SScope.Malware-Cryptor.Ponik"
+        },
+        "TACHYON": {
+          "method": "blacklist",
+          "engine_name": "TACHYON",
+          "engine_version": "2025-08-10.02",
+          "engine_update": "20250810",
+          "category": "undetected",
+          "result": null
+        },
+        "Cylance": {
+          "method": "blacklist",
+          "engine_name": "Cylance",
+          "engine_version": "3.0.0.0",
+          "engine_update": "20250805",
+          "category": "malicious",
+          "result": "Unsafe"
+        },
+        "Panda": {
+          "method": "blacklist",
+          "engine_name": "Panda",
+          "engine_version": "4.6.4.2",
+          "engine_update": "20250809",
+          "category": "malicious",
+          "result": "Trj/Tepfer.D"
+        },
+        "TrendMicro-HouseCall": {
+          "method": "blacklist",
+          "engine_name": "TrendMicro-HouseCall",
+          "engine_version": "24.550.0.1002",
+          "engine_update": "20250810",
+          "category": "malicious",
+          "result": "BKDR_PONY.SM"
+        },
+        "Tencent": {
+          "method": "blacklist",
+          "engine_name": "Tencent",
+          "engine_version": "1.0.0.1",
+          "engine_update": "20250810",
+          "category": "undetected",
+          "result": null
+        },
+        "Yandex": {
+          "method": "blacklist",
+          "engine_name": "Yandex",
+          "engine_version": "5.5.2.24",
+          "engine_update": "20250809",
+          "category": "malicious",
+          "result": "Trojan.GenAsa!eAKHNffkSI8"
+        },
+        "TrellixENS": {
+          "method": "blacklist",
+          "engine_name": "TrellixENS",
+          "engine_version": "6.0.6.653",
+          "engine_update": "20250809",
+          "category": "malicious",
+          "result": "PWS-Zbot.gen.ate"
+        },
+        "huorong": {
+          "method": "blacklist",
+          "engine_name": "huorong",
+          "engine_version": "b60a751:b60a751:2fc0cad:2fc0cad",
+          "engine_update": "20250809",
+          "category": "malicious",
+          "result": "TrojanSpy/Fareit.o"
+        },
+        "MaxSecure": {
+          "method": "blacklist",
+          "engine_name": "MaxSecure",
+          "engine_version": "1.0.0.1",
+          "engine_update": "20250808",
+          "category": "malicious",
+          "result": "Trojan.Malware.300983.susgen"
+        },
+        "Fortinet": {
+          "method": "blacklist",
+          "engine_name": "Fortinet",
+          "engine_version": "7.0.30.0",
+          "engine_update": "20250810",
+          "category": "malicious",
+          "result": "W32/Generic.AC.14B!tr"
+        },
+        "Zoner": {
+          "method": "blacklist",
+          "engine_name": "Zoner",
+          "engine_version": "2.2.2.0",
+          "engine_update": "20250810",
+          "category": "undetected",
+          "result": null
+        },
+        "DeepInstinct": {
+          "method": "blacklist",
+          "engine_name": "DeepInstinct",
+          "engine_version": "5.0.0.8",
+          "engine_update": "20250807",
+          "category": "malicious",
+          "result": "MALICIOUS"
+        },
+        "alibabacloud": {
+          "method": "blacklist",
+          "engine_name": "alibabacloud",
+          "engine_version": "2.2.0",
+          "engine_update": "20250321",
+          "category": "malicious",
+          "result": "RiskWare:Win/Fareit.D"
+        },
+        "Trustlook": {
+          "method": "blacklist",
+          "engine_name": "Trustlook",
+          "engine_version": "1.0",
+          "engine_update": "20250810",
+          "category": "type-unsupported",
+          "result": null
+        },
+        "SymantecMobileInsight": {
+          "method": "blacklist",
+          "engine_name": "SymantecMobileInsight",
+          "engine_version": "2.0",
+          "engine_update": "20250124",
+          "category": "type-unsupported",
+          "result": null
+        },
+        "BitDefenderFalx": {
+          "method": "blacklist",
+          "engine_name": "BitDefenderFalx",
+          "engine_version": "2.0.936",
+          "engine_update": "20250416",
+          "category": "type-unsupported",
+          "result": null
+        },
+        "Avast-Mobile": {
+          "method": "blacklist",
+          "engine_name": "Avast-Mobile",
+          "engine_version": "250809-00",
+          "engine_update": "20250809",
+          "category": "type-unsupported",
+          "result": null
+        }
+      }
+    }
+  }
+}
