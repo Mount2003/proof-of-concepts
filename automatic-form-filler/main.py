@@ -11,7 +11,7 @@ def get_fileInfoByHash(fileSha1Hash, VT_API_KEY):
         "x-apikey": f"{VT_API_KEY}"
     }
     response = requests.get(url, headers=headers)
-    return response.text
+    return response.json()
 
 def get_placeHolders(doc):
     holders = []
@@ -30,7 +30,7 @@ def get_env(secret):
 
 def main():
     doc = docx.Document("malware_report_template.docx")
-    # get_fileInfoByHash(get_env("FILE_SHA1SUM"), get_env("VIRUS_TOTAL_API_KEY"))
+    # apiResult = get_fileInfoByHash(get_env("FILE_SHA1SUM"), get_env("VIRUS_TOTAL_API_KEY"))
 
 if __name__ == "__main__":
     main()
