@@ -101,7 +101,7 @@ def get_env(secret):
 
 def main():
     # Logic to fill up the template malware report.
-    fileSha1Sum = '6bc8be926053efe7a06ff968329333f231ed38f5'
+    fileSha1Sum = "" # Input file SHA-1 hash here
     template_report = "Documents/malware_report_template.docx"
     output_filename = "Documents/filled_report.docx"
     doc = docx.Document(template_report)
@@ -113,8 +113,8 @@ def main():
     doc.save(output_filename)
 
     # Logic to send report via email. (Can comment out if not needed)
-    sender_email = "maeganmaulder420@gmail.com"
-    to_email = "dallasburnfc@gmail.com"
+    sender_email = "" # Insert sender email here
+    to_email = "" # Insert recipient email here
     subject = "Your Automated Malware Report"
     message_body = "Hi, here is the automated malware analysis report you requested."
     send_email_with_attachment(sender_email, to_email, subject, message_body, output_filename)
