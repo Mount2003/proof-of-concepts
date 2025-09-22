@@ -7,8 +7,8 @@ import json
 import datetime
 from send_report_gmail import send_email_with_attachment
 
-def get_fileInfoByHash(fileSha1Hash, VT_API_KEY):
-    url = f"https://www.virustotal.com/api/v3/files/{fileSha1Hash}"
+def get_fileInfoByHash(fileHash, VT_API_KEY):
+    url = f"https://www.virustotal.com/api/v3/files/{fileHash}"
     headers = {
         "accept": "application/json",
         "x-apikey": f"{VT_API_KEY}"
@@ -101,12 +101,12 @@ def get_env(secret):
 
 def main():
     # Logic to fill up the template malware report.
-    fileSha1Sum = "" # Input file SHA-1 hash here
+    fileHash = "" # Insert file hash here
     template_report = "Documents/malware_report_template.docx"
     output_filename = "Documents/filled_report.docx"
     doc = docx.Document(template_report)
     holders = get_placeHolders(doc)
-    # apiResult = get_fileInfoByHash(fileSha1Sum, get_env("VIRUS_TOTAL_API_KEY")) # Fetch real data
+    # apiResult = get_fileInfoByHash(fileHash, get_env("VIRUS_TOTAL_API_KEY")) # Fetch real data
     apiResult = get_sampleData() # Fetch sample data
     jsonData = populate_placeHolders(holders, apiResult)
     replace_placeHolders(doc, json.loads(jsonData))
